@@ -114,7 +114,7 @@ columns=fullflexible
 %\newtheorem{algorithm}{Algorithm}[section]
 %\newtheorem{cor}{Corollary}
 \newcommand{\BEQA}{\begin{eqnarray}}
-\newcommand{\EEQA}{\end{eqnarray}}
+		\newcommand{\EEQA}{\end{eqnarray}}
 \newcommand{\define}{\stackrel{\triangle}{=}}
 
 \bibliographystyle{IEEEtran}
@@ -137,7 +137,7 @@ columns=fullflexible
 \newtheorem{rem}{Remark}
 \newcommand{\sgn}{\mathop{\mathrm{sgn}}}
 \providecommand{\abs}[1]{\left\vert#1\right\vert}
-\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\res}[1]{\Res\displaylimits_{#1}}
 \providecommand{\norm}[1]{\left\lVert#1\right\rVert}
 %\providecommand{\norm}[1]{\lVert#1\rVert}
 \providecommand{\mtx}[1]{\mathbf{#1}}
@@ -145,7 +145,7 @@ columns=fullflexible
 \providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
 %\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
 \providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
-	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
 \newcommand{\solution}{\noindent \textbf{Solution: }}
 \newcommand{\cosec}{\,\text{cosec}\,}
 \providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
@@ -178,18 +178,20 @@ columns=fullflexible
 \vspace{3cm}
 
 \title{
-%	\logo{
-Assignment:- 1 (10.15.1.7)
-%	}
+	%	\logo{
+	Assignment:- 1\\
+	\Large AI1110: Probability and Random Variables\\
+	\Large Indian Institute of Technology, Hyderabad
+	%	}
 }
-\author{ 
-CS22BTECH11001
-\\
-Aayush Adlakha
-% <-this % stops a space
+\author{
+	CS22BTECH11001
+	\\
+	Aayush Adlakha\\
+	26 April, 2023
+	% <-this % stops a space
+}
 
-	
-}	
 %\title{
 %	\logo{Matrix Analysis through Octave}{\begin{center}\includegraphics[scale=.24]{tlc}\end{center}}{}{HAMDSP}
 %}
@@ -258,7 +260,6 @@ Aayush Adlakha
 \maketitle
 
 \newpage
-
 %\tableofcontents
 
 \bigskip
@@ -283,32 +284,32 @@ Aayush Adlakha
 %\begin{IEEEkeywords}
 %Cooperative diversity, decode and forward, piecewise linear
 %\end{IEEEkeywords}
-\textbf{Problem:}
+\textbf{Problem: } 10.15.1.7\\
 It is given that in a group of 3 students, the probability of 2 students not having the same birthday is 0.992. What is the probability that the 2 students have the same birthday?
 \\
 
-\textbf{Solution:}
+\textbf{Solution:}\\
 Let us define $E$ as the event that no 2 students, in a group of 3 share a birthday
 \begin{equation}
-\label{eq:1}
-    P(E) = 0.992
+	\label{eq:1}
+	P(E) = 0.992
 \end{equation}
 We are asked to find the probability that 2 students, in a group of 3 share a birthday. This is the event $\overline{E}.$
 
 We know that,
 \begin{equation}
-\label{eq:2}
-    P(E) + P(\overline{E}) = 1  
+	\label{eq:2}
+	P(E) + P(\overline{E}) = 1
 \end{equation}
 
 From (1) and (2)
- $$   
- P(\overline{E}) = 1 - 0.992
- $$
- 
-   $$
-   P(\overline{E}) = 0.008
-   $$
+$$
+	P(\overline{E}) = 1 - 0.992
+$$
+
+$$
+	P(\overline{E}) = 0.008
+$$
 
 
 % For peer review papers, you can put extra information on the cover
