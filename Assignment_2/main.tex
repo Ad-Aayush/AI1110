@@ -264,38 +264,15 @@ Let X be the event that exactly one of A, B or C occur.
 
 Let Y be the event that at least one of A, B or C occur.
 
+Using Boolean logic,
+\begin{align}
+    Y=A+B+C
+\end{align}
 Let Z be the event that at least two of A, B or C occur.
 
-Using \eqref{Axioms}
+Writing down Z as at least one of AB, BC or AC occurring gives us.
 \begin{align}
-\pr{(A+B)+C}&=\pr{A+B}+\pr{C}\\
-&-\pr{C(A+B)}\nonumber\\
-\pr{Y}&=\pr{A+B}+\pr{C}\\
-&-\pr{AC+BC}\nonumber\\
-\end{align}
-
-Applying \eqref{Axioms} again,
-\begin{align}
-\pr{Y} &= \pr{A} + \pr{B} + \pr{C}\\ &- \pr{AB} - \pr{BC} - \pr{AC}\nonumber\\
-&+\pr{ACBC}\nonumber\\
-\label{PIE}
-\pr{Y}&= \pr{A} + \pr{B} + \pr{C}\\ &- \pr{AB} - \pr{BC} - \pr{AC}\nonumber\\
-&+\pr{ABC}\nonumber\\
-[&\because CC=C]\\
-\pr{Y}&= \pr{A} + \pr{B} + \pr{C}\\ &- \pr{AB} - \pr{BC} - \pr{AC}\nonumber\\
-[&\because ABC = 0]\\
-    &= 0.20+0.32+0.43-0.07-0.15\\
-    &= 0.73
-\end{align}
-Applying \eqref{PIE}
-\begin{align}
-    \pr{Z}&=\pr{AB}+\pr{BC}+\pr{AC}\\&-\pr{ABBC}-\pr{BCAC}\nonumber\\
-    &-\pr{ACAB}+\pr{ABBCAC}\nonumber\\
-    \pr{Z}&=\pr{AB}+\pr{BC}+\pr{AC}\nonumber\\&-2\pr{ABC}\\
-    &=\pr{AB}+\pr{BC}+\pr{AC}\\
-    [&\because ABC = 0]\\
-    &=0.07+0.15\\
-    &=0.22
+    Z=AB+BC+CA
 \end{align}
 We know that, all three events never occur simultaneously.
 
@@ -307,13 +284,41 @@ X represents occurrence of exactly 1 of A,B and C.
 
 Y can therefore be written as,
 \begin{align}
-    \pr{Y}&=\pr{X}+\pr{Z}
+    Y&=X+Z\\
+    YZ^\prime&=(X+Z)Z^\prime\\
+    YZ^\prime&=XZ^\prime+ZZ^\prime\\
+    YZ^\prime&=XZ^\prime
 \end{align}
-Upon rearranging
+$Z^\prime$ can be thought of as either none of the events occurring or exactly one of them occurring
+
+$XZ^\prime$ would therefore be event that exactly one occurs.
 \begin{align}
-    \pr{X}&=\pr{Y}-\pr{Z}\\
-    &=0.73-0.22\\
+    XZ^\prime&=X\\
+    X&=YZ^\prime\\
+    &=(A+B+C)(AB+BC+CA)^\prime\\
+    &=(A+B+C)((AB)^\prime(BC)^\prime(CA)^\prime\\
+    &=(A+B+C)(A^\prime+B^\prime)(B^\prime+C^\prime)(A^\prime\+C^\prime)\\
+    &=(AA^\prime+BA^\prime+CA^\prime+AB^\prime+BB^\prime+CB^\prime)\nonumber\\&(B^\prime A^\prime+C^\prime A^\prime+B^\prime C^\prime +C^\prime C^\prime)\\
+    &=(BA^\prime+CA^\prime+AB^\prime+CB^\prime)(A^\prime B^\prime\nonumber\\&+A^\prime C^\prime+B^\prime C^\prime)\\
+    &=(BA^\prime A^\prime B^\prime+BA^\prime A^\prime C^\prime+BA^\prime B^\prime C^\prime\nonumber\\
+    &+CA^\prime A^\prime B^\prime +BA^\prime A^\prime C^\prime+CA^\prime B^\prime C^\prime\nonumber\\
+    &+AB^\prime A^\prime B^\prime+ AB^\prime A^\prime C^\prime+AB^\prime B^\prime C^\prime\\
+    &+CB^\prime A^\prime B^\prime+ CB^\prime A^\prime C^\prime +CB^\prime B^\prime C^\prime)\\
+    &=(A^\prime BC^\prime+A^\prime B^\prime C+AB^\prime C^\prime)
+\end{align}
+Now, X has been represented as a union of 3 mutually exclusive events.
+
+As any 2 of them has 0 intersection due of presence of complements.
+
+Therefore, by Axioms of Probability
+\begin{align}
+    \pr{X}&=\pr{AB^\prime C^\prime}+\pr{A^\prime BC^\prime}+\pr{A^\prime B^\prime C}
+\end{align}
+Clearly, from the figure
+\begin{align}
+    \pr{X}&=0.13+0.10+0.28\\
     &=0.51
 \end{align}
+
 \end{enumerate}
 \end{document}
