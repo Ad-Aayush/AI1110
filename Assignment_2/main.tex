@@ -260,17 +260,17 @@ Clearly,
     \pr{BC} = 0.15
 \end{align}
 \item 
-Let X be the event that exactly one of A, B or C occur.
+Let $X$ be the event that exactly one of $A$, $B$ or $C$ occur.
 
-Let Y be the event that at least one of A, B or C occur.
+Let $Y$ be the event that at least one of $A$, $B$ or $C$ occur.
 
 Using Boolean logic,
 \begin{align}
     Y=A+B+C
 \end{align}
-Let Z be the event that at least two of A, B or C occur.
+Let $Z$ be the event that at least two of A, B or C occur.
 
-Writing down Z as at least one of AB, BC or AC occurring gives us.
+Writing down $Z$ as at least one of $AB$, $BC$ or $AC$ occurring gives us.
 \begin{align}
     Z=AB+BC+CA
 \end{align}
@@ -278,11 +278,11 @@ We know that, all three events never occur simultaneously.
 
 Therefore,
 
-Z represents occurrence of exactly 2 of A,B and C.
+$Z$ represents occurrence of exactly 2 of A,B and C.
 
-X represents occurrence of exactly 1 of A,B and C.
+$X$ represents occurrence of exactly 1 of A,B and C.
 
-Y can therefore be written as,
+$Y$ can therefore be written as,
 \begin{align}
     Y&=X+Z\\
     YZ^\prime&=(X+Z)Z^\prime\\
@@ -295,18 +295,20 @@ $XZ^\prime$ would therefore be event that exactly one occurs.
 \begin{align}
     XZ^\prime&=X\\
     X&=YZ^\prime\\
-    &=(A+B+C)(AB+BC+CA)^\prime\\
-    &=(A+B+C)((AB)^\prime(BC)^\prime(CA)^\prime\\
-    &=(A+B+C)(A^\prime+B^\prime)(B^\prime+C^\prime)(A^\prime\+C^\prime)\\
-    &=(AA^\prime+BA^\prime+CA^\prime+AB^\prime+BB^\prime+CB^\prime)\nonumber\\&(B^\prime A^\prime+C^\prime A^\prime+B^\prime C^\prime +C^\prime C^\prime)\\
-    &=(BA^\prime+CA^\prime+AB^\prime+CB^\prime)(A^\prime B^\prime\nonumber\\&+A^\prime C^\prime+B^\prime C^\prime)\\
+    &=(A+B+C){(AB+BC+CA)}^\prime\\
+    &=(A+B+C){(AB)}^\prime{(BC)}^\prime{(CA)}^\prime \\
+    &=(A+B+C)(A^\prime + B^\prime)(B^\prime + C^\prime)(A^\prime + C^\prime) \\
+    &=(AA^\prime+BA^\prime+CA^\prime+AB^\prime+BB^\prime+CB^\prime)\nonumber\\
+    &(B^\prime A^\prime+C^\prime A^\prime+B^\prime C^\prime +C^\prime C^\prime)\\
+    &=(BA^\prime+CA^\prime+AB^\prime+CB^\prime)(A^\prime B^\prime\nonumber\\
+    &+A^\prime C^\prime+B^\prime C^\prime)\\
     &=(BA^\prime A^\prime B^\prime+BA^\prime A^\prime C^\prime+BA^\prime B^\prime C^\prime\nonumber\\
     &+CA^\prime A^\prime B^\prime +BA^\prime A^\prime C^\prime+CA^\prime B^\prime C^\prime\nonumber\\
-    &+AB^\prime A^\prime B^\prime+ AB^\prime A^\prime C^\prime+AB^\prime B^\prime C^\prime\\
-    &+CB^\prime A^\prime B^\prime+ CB^\prime A^\prime C^\prime +CB^\prime B^\prime C^\prime)\\
+    &+AB^\prime A^\prime B^\prime+ AB^\prime A^\prime C^\prime+AB^\prime B^\prime C^\prime\nonumber\\
+    &+CB^\prime A^\prime B^\prime+ CB^\prime A^\prime C^\prime +CB^\prime B^\prime C^\prime)\nonumber\\
     &=(A^\prime BC^\prime+A^\prime B^\prime C+AB^\prime C^\prime)
 \end{align}
-Now, X has been represented as a union of 3 mutually exclusive events.
+Now, $X$ has been represented as a union of 3 mutually exclusive events.
 
 As any 2 of them has 0 intersection due of presence of complements.
 
