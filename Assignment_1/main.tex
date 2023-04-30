@@ -1,15 +1,14 @@
-
+\iffalse
 \let\negmedspace\undefined
 \let\negthickspace\undefined
 \documentclass[journal,12pt,twocolumn]{IEEEtran}
 %\documentclass[conference]{IEEEtran}
 %\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
-\usepackage{svg}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
-\usepackage{graphicx,wrapfig}
+\usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{txfonts}
@@ -152,15 +151,35 @@ columns=fullflexible
 \providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
 \newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
 \newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+%\numberwithin{equation}{section}
+%\numberwithin{equation}{subsection}
+%\numberwithin{problem}{section}
+%\numberwithin{definition}{section}
+%\makeatletter
+%\@addtoreset{figure}{problem}
+%\makeatother
 
+%\let\StandardTheFigure\thefigure
 \let\vec\mathbf
+%\renewcommand{\thefigure}{\theproblem.\arabic{figure}}
+%\renewcommand{\thefigure}{\theproblem}
+%\setlist[enumerate,1]{before=\renewcommand\theequation{\theenumi.\arabic{equation}}
+%\counterwithin{equation}{enumi}
 
+
+%\renewcommand{\theequation}{\arabic{subsection}.\arabic{equation}}
+
+%\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+%     \def\rightbox#1{\makebox[0in][r]{#1}}
+%     \def\centbox#1{\makebox[0in]{#1}}
+%     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+%     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
 
 \vspace{3cm}
 
 \title{
 	%	\logo{
-	Assignment:- 2
+	Assignment:- 1
  
 	\Large AI1110: Probability and Random Variables
  
@@ -172,94 +191,112 @@ columns=fullflexible
 	
 	Aayush Adlakha
  
-	29 April, 2023
+	26 April, 2023
 	% <-this % stops a space
 }
 
+%\title{
+%	\logo{Matrix Analysis through Octave}{\begin{center}\includegraphics[scale=.24]{tlc}\end{center}}{}{HAMDSP}
+%}
+
+
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+%\title{Matrix Analysis through Octave}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+%\author{<-this % stops a space
+%\thanks{}}
+%}
+% note the % following the last \IEEEmembership and also \thanks - 
+% these prevent an unwanted space from occurring between the last author name
+% and the end of the author line. i.e., if you had this:
+% 
+% \author{....lastname \thanks{...} \thanks{...} }
+%                     ^------------^------------^----Do not want these spaces!
+%
+% a space would be appended to the last name and could cause every name on that
+% line to be shifted left slightly. This is one of those "LaTeX things". For
+% instance, "\textbf{A} \textbf{B}" will typeset as "A B" not "AB". To get
+% "AB" then you have to do: "\textbf{A}\textbf{B}"
+% \thanks is no different in this regard, so shield the last } of each \thanks
+% that ends a line with a % and do not let a space in before the next \thanks.
+% Spaces after \IEEEmembership other than the last one are OK (and needed) as
+% you are supposed to have spaces between the names. For what it is worth,
+% this is a minor point as most people would not even notice if the said evil
+% space somehow managed to creep in.
+
+
+
+% The paper headers
+%\markboth{Journal of \LaTeX\ Class Files,~Vol.~6, No.~1, January~2007}%
+%{Shell \MakeLowercase{\textit{et al.}}: Bare Demo of IEEEtran.cls for Journals}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+% 
+% *** Note that you probably will NOT want to include the author's ***
+% *** name in the headers of peer review papers.                   ***
+% You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
+% you desire.
 
 
 
 
+% If you want to put a publisher's ID mark on the page you can do it like
+% this:
+%\IEEEpubid{0000--0000/00\$00.00~\copyright~2007 IEEE}
+% Remember, if you use this you must call \IEEEpubidadjcol in the second
+% column for its text to clear the IEEEpubid mark.
 
+
+
+% make the title area
 \maketitle
 
 \newpage
-
+%\tableofcontents
 
 \bigskip
+
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
-\textbf{Exexplar 11.16.3.11}
-The accompanying Venn diagram shows three events, A, B, and C, and also the probabilities of the various intersections (for instance, \pr{AB} = .07). Determine
-\begin{wrapfigure}{r}{0.5\linewidth}
-    \centering
-    \includesvg[scale=0.56]{Figures/Question_Figure}
-    \caption{Venn Diagram}
-    \label{fig:Question}
-\end{wrapfigure}
-\begin{enumerate}[label=(\alph*)]
-\item 
-\pr{A}
-\item 
-\pr{BC^\prime}
-\item 
-\pr{A + B}
-\item 
-\pr{AB^\prime}
-\item 
-\pr{BC}
-\item 
-Probability of exactly one
-of the three occurs.
-\end{enumerate}
+%\renewcommand{\theequation}{\theenumi}
 
+%\begin{abstract}
+%%\boldmath
+%In this letter, an algorithm for evaluating the exact analytical bit error rate  (BER)  for the piecewise linear (PL) combiner for  multiple relays is presented. Previous results were available only for upto three relays. The algorithm is unique in the sense that  the actual mathematical expressions, that are prohibitively large, need not be explicitly obtained. The diversity gain due to multiple relays is shown through plots of the analytical BER, well supported by simulations. 
+%
+%\end{abstract}
+% IEEEtran.cls defaults to using nonbold math in the Abstract.
+% This preserves the distinction between vectors and scalars. However,
+% if the journal you are submitting to favors bold math in the abstract,
+% then you can use LaTeX's standard command \boldmath at the very start
+% of the abstract to achieve this. Many IEEE journals frown on math
+% in the abstract anyway.
 
+% Note that keywords are not normally used for peerreview papers.
+%\begin{IEEEkeywords}
+%Cooperative diversity, decode and forward, piecewise linear
+%\end{IEEEkeywords}
+\textbf{Exercise 10.15.1.7}
 
 \textbf{Solution.}
-\begin{enumerate}[label=(\alph*)]
-\item 
-Clearly,
+\fi
+Let $E$ be the event that no 2 students in a group of 3 share a birthday.  Then 
 \begin{align}
-\pr{A} &= 0.13 + 0.07\\
-       &= 0.20
+	\label{eq:ncert/10/15/1/7/1}
+	\pr{E} = 0.992 \implies 
+	\pr{E^\prime} =1-\pr{E}
+                = 0.008 
 \end{align}
-\item 
-Clearly,
-\begin{align}
-\label{eq:1}
-    \pr{B} &= 0.10 + 0.07 + 0.15\\
-       &= 0.32
-\end{align}
-Also,
-\begin{align}
-    \pr{BC^\prime} &= \pr{B} - \pr{BC} \\
-    &= 0.32 - 0.15\\
-    &= 0.17
-\end{align}
-\item 
-From Axioms of Probability
-\begin{align}
-    \pr{A + B} &= \pr{A} + \pr{B} - \pr{AB}\\
-    &= 0.20 + 0.32 - 0.07\\
-    &= 0.45
-\end{align}
-\item 
-\begin{align}
-    \pr{AB^\prime} &= \pr{A} - \pr{AB} \\
-    &= 0.20 - 0.07\\
-    &= 0.13
-\end{align}
-\item 
-Clearly,
-\begin{align}
-    \pr{BC} = 0.15
-\end{align}
-\item 
-Let E be the event that exactly one of A, B or C occurs.
-\begin{align}
-    \pr{E} &= \pr{AB^\prime C^\prime} + \pr{A^\prime BC^\prime} + \pr{A^\prime B^\prime C}\\
-    &= 0.13 + 0.10 + 0.28\\
-    &= 0.51
-\end{align}
-\end{enumerate}
-\end{document}
+
+
