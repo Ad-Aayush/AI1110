@@ -191,7 +191,7 @@ columns=fullflexible
 \bigskip
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
-\textbf{Exexplar 11.16.3.11}
+\textbf{Exemplar 11.16.3.11}
 The accompanying Venn diagram shows three events, A, B, and C, and also the probabilities of the various intersections (for instance, \pr{AB} = .07). Determine
 \begin{enumerate}[label=(\alph*)]
 \item 
@@ -228,9 +228,12 @@ Clearly,
 \end{align}
 Also,
 \begin{align}
-B &= B \brak{C+C^{\prime}}\\
-  &=  BC + BC^{\prime}
+A &= A \brak{B+B^{\prime}} =  AB + AB^{\prime}\\
+[&\because B + B^\prime = 1]\\\label{eq:axiom_sum_A}
+\pr{A} &= \pr{AB} +\pr{AB^\prime}\\
+    [&\because BB^\prime = 0] \nonumber
 \end{align}
+Using \eqref{eq:axiom_sum_A}
 \begin{align}
     \pr{BC^\prime} &= \pr{B} - \pr{BC} \\
     &= 0.32 - 0.15\\
@@ -239,11 +242,13 @@ B &= B \brak{C+C^{\prime}}\\
 \item 
 From Axioms of Probability
 \begin{align}
+\label{Axioms}
     \pr{A + B} &= \pr{A} + \pr{B} - \pr{AB}\\
     &= 0.20 + 0.32 - 0.07\\
     &= 0.45
 \end{align}
 \item 
+Using \eqref{eq:axiom_sum_A}
 \begin{align}
     \pr{AB^\prime} &= \pr{A} - \pr{AB} \\
     &= 0.20 - 0.07\\
@@ -255,27 +260,59 @@ Clearly,
     \pr{BC} = 0.15
 \end{align}
 \item 
-Let X be the event that exactly one of A, B and C occur.
+Let X be the event that exactly one of A, B or C occur.
 
-Let Y be the event that atleast one of A, B and C occur.
+Let Y be the event that at least one of A, B or C occur.
 
-Let Z be the event that exactly two of A, B and C occur.
+Let Z be the event that at least two of A, B or C occur.
 
-By Principle of Inclusion and Exclusion
-\begin{align}   
-    \pr{Y} &= \pr{A} + \pr{B} + \pr{C}\\ &- \pr{AB} - \pr{BC} - \pr{AC}\nonumber\\
-    [&\because \pr{ABC} =0]\\
-    &= 0.20+0.32+0.43-0.07-0.15\\
-    &= 0.73\\
-    \pr{Z} &= \pr{AB} + \pr{BC} + \pr{AC}\\
-    [&\because \pr{ABC} =0]\\
-    &= 0.07+0.15\\
-    &= 0.22
-\end{align}
-Now,
+Using \eqref{Axioms}
 \begin{align}
-    \pr{X} &= \pr{Y}-\pr{Z}\\
-    &= 0.73-0.22\\
+\pr{(A+B)+C}&=\pr{A+B}+\pr{C}\\
+&-\pr{C(A+B)}\nonumber\\
+\pr{Y}&=\pr{A+B}+\pr{C}\\
+&-\pr{AC+BC}\nonumber\\
+\end{align}
+
+Applying \eqref{Axioms} again,
+\begin{align}
+\pr{Y} &= \pr{A} + \pr{B} + \pr{C}\\ &- \pr{AB} - \pr{BC} - \pr{AC}\nonumber\\
+&+\pr{ACBC}\nonumber\\
+\label{PIE}
+\pr{Y}&= \pr{A} + \pr{B} + \pr{C}\\ &- \pr{AB} - \pr{BC} - \pr{AC}\nonumber\\
+&+\pr{ABC}\nonumber\\
+[&\because CC=C]\\
+\pr{Y}&= \pr{A} + \pr{B} + \pr{C}\\ &- \pr{AB} - \pr{BC} - \pr{AC}\nonumber\\
+[&\because ABC = 0]\\
+    &= 0.20+0.32+0.43-0.07-0.15\\
+    &= 0.73
+\end{align}
+Applying \eqref{PIE}
+\begin{align}
+    \pr{Z}&=\pr{AB}+\pr{BC}+\pr{AC}\\&-\pr{ABBC}-\pr{BCAC}\nonumber\\
+    &-\pr{ACAB}+\pr{ABBCAC}\nonumber\\
+    \pr{Z}&=\pr{AB}+\pr{BC}+\pr{AC}\nonumber\\&-2\pr{ABC}\\
+    &=\pr{AB}+\pr{BC}+\pr{AC}\\
+    [&\because ABC = 0]\\
+    &=0.07+0.15\\
+    &=0.22
+\end{align}
+We know that, all three events never occur simultaneously.
+
+Therefore,
+
+Z represents occurrence of exactly 2 of A,B and C.
+
+X represents occurrence of exactly 1 of A,B and C.
+
+Y can therefore be written as,
+\begin{align}
+    \pr{Y}&=\pr{X}+\pr{Z}
+\end{align}
+Upon rearranging
+\begin{align}
+    \pr{X}&=\pr{Y}-\pr{Z}\\
+    &=0.73-0.22\\
     &=0.51
 \end{align}
 \end{enumerate}
