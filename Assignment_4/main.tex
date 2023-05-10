@@ -315,4 +315,15 @@ For data with $\mu=0$ and $\sigma^2=1$, that is $Z=\frac{X-\mu}{\sigma}$
 \begin{align}
     \pr{Z=z} &\approx \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}
 \end{align}
+Now,
+\begin{align}
+    \pr{Z \le z}&= \sum_{t=-\infty}^z \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}
+\end{align}
+
+Modeling the terms of the summation as area of rectangles of height 1, in the region $(t-0.5,t+0.5)$
+
+We can further approximate the Sum to be the integral,
+\begin{align}
+    \pr{Z \le z}&= \int_{-\infty}^{z+0.5} \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}
+\end{align}
 \end{document}
