@@ -88,7 +88,8 @@
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 \def\inputGnumericTable{}                                 %%
-
+\newcommand{\permcomb}[4][0mu]{{{}^{#3}\mkern#1#2_{#4}}}
+\newcommand{\comb}[1][-1mu]{\permcomb[#1]{C}}
 \lstset{
 %language=C,
 frame=single, 
@@ -204,7 +205,7 @@ Let $X$ be a Binomial random Variable.
 \end{align}
 The mean $\mu$ of $X$,
 \begin{align}
-    \mu &= n*p\\
+    \mu &= n\times p\\
     &= 9
 \end{align}
 The Variance $\sigma^2$ of $X$,
@@ -221,6 +222,8 @@ Now, $Z$ is a random variable with $\mu=0$ and $\sigma^2=1$.
 We can calculate the distribution of $Z$ by assuming it be a set of discrete points on the Normal-Distribution.
 
 Note:-The CDF of Z will converge to the normal distribution for large values of $n$.
+
+[Proof on next page]
 
 The Normal-Distribution,
 \begin{align}
@@ -243,5 +246,73 @@ F_Z(-3.16) &= \int_{-\infty}^{-2.66} \frac{1}{\sqrt{2\pi}}\times e^{-\frac{t^2}{
 On Computation,
 \begin{align}
 F_Z(-3.16) &= 0.0042
+\end{align}
+\newpage
+Given that, X is a Binomial Random Variable where n is number of trials, p is probability of success and q is probability of failure.
+
+Let $\mu$ be the mean and $\sigma^2$ be the variance.
+We know that,
+\begin{align}
+    \pr{X=x} &= \comb{n}{x}p^xq^{n-x}\\
+    \mu &= np\\
+    \sigma^2 &= npq
+\end{align}
+Also for large values of n, by Stirling's Approximation.
+\begin{align}
+    n! &\approx n^n e^{-n} \sqrt{2\pi n}
+\end{align}
+Now,
+\begin{align}
+    &\pr{X = x} = \frac{n!}{x!(n-x)!}p^xq^{n-x}\\
+    &\approx \frac{n^n e^{-n} \sqrt{2\pi n}}{x^x e^{-x} \sqrt{2\pi x} (n-x)^{n-x} e^{-(n-x)} \sqrt{2\pi (n-x)}} p^x q^{n-x}\\
+    &= \brak{\frac{np}{x}}^x \brak{\frac{nq}{n-x}}^{n-x} \sqrt{\frac{n}{2\pi x(n-x)}}
+\end{align}
+Let,
+\begin{align}
+    \delta &= x - np\\  
+    x &= np + \delta\\
+    n-x &= nq -\delta
+\end{align}
+Now,
+\begin{align}
+    \ln{\brak{\frac{np}{x}}}&= \ln{\brak{\frac{np}{np+\delta}}}\\
+    &= -\ln{\brak{\frac{np+\delta}{np}}}\\
+    &= -\ln{\brak{1+\frac{\delta}{np}}}
+\end{align}
+Similarly,
+\begin{align}
+    \ln{\brak{\frac{nq}{n-x}}}&= \ln{\brak{\frac{nq}{nq-\delta}}}\\
+    &= -\ln{\brak{\frac{nq-\delta}{nq}}}\\
+    &= -\ln{\brak{1-\frac{\delta}{nq}}}
+\end{align}
+Using,
+\begin{align}
+    \ln{\brak{1+x}} \approx x-\frac{x^2}{2}
+\end{align}
+Now,
+\begin{align}
+    \ln{\brak{\brak{\frac{np}{x}}^x \brak{\frac{nq}{n-x}}^{(n-x)}}}&=-x\ln{\brak{1+\frac{\delta}{np}}}-(n-x)\ln{\brak{1-\frac{\delta}{nq}}}\\
+    &=-(\delta + np)\brak{\frac{\delta}{np}-\frac{\delta^2}{2n^2 p^2}}\nonumber\\
+    &-(nq-\delta)\brak{-\frac{\delta}{nq}-\frac{\delta^2}{2n^2q^2}}\\
+    &\approx -\delta \sbrak{1+\frac{\delta}{2np}-1+\frac{\delta}{2nq}}\\
+    &= - \frac{\delta^2}{2npq}\\
+    \therefore \brak{\frac{np}{x}}^x \brak{\frac{nq}{n-x}}^{(n-x)}&=e^{-\frac{\delta^2}{2npq}}
+\end{align}
+Moreover,
+\begin{align}
+    \sqrt{\frac{n}{2\pi x(n-x)}} &= \sqrt{\frac{n}{2\pi (np+\delta)(nq-\delta)}}\\
+    &\approx \sqrt{\frac{1}{2\pi npq}}
+\end{align}
+This holds only when x differs from the mean by a few standard deviations.
+
+Now,
+\begin{align}
+    \pr{X=x} &\approx \sqrt{\frac{1}{2\pi npq}} e^{-\frac{(x-np)^2}{2npq}}
+\end{align}
+This is the Normal-Distribution for data with $\mu=np$ and $\sigma^2=npq$
+
+For data with $\mu=0$ and $\sigma^2=1$, that is $Z=\frac{X-\mu}{\sigma}$
+\begin{align}
+    \pr{Z=z} &\approx \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}
 \end{align}
 \end{document}
