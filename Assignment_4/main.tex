@@ -6,12 +6,13 @@
 %\IEEEoverridecommandlockouts
 % The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
 \usepackage{svg}
-\usepackage{tikz, pgfplots}
+\usepackage{tikz}
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts,amsthm}
 \usepackage{algorithmic}
-\usepackage{float,graphicx}
-\usepackage{textcomp}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{subcaption}
 \usepackage{xcolor}
 \usepackage{txfonts}
 \usepackage{listings}
@@ -46,7 +47,7 @@
 %\usepackage{bm}
 %\usepackage{cite}
 %\usepackage{cases}
-\usepackage{subfig}
+%\usepackage{subfig}
 %\usepackage{xtab}
 %\usepackage{longtable}
 %\usepackage{multirow}
@@ -253,7 +254,7 @@ Given that, X is a Binomial Random Variable where n is number of trials, p is pr
 Let $\mu$ be the mean and $\sigma^2$ be the variance.
 We know that,
 \begin{align}
-    \pr{X=x} &= \comb{n}{x}p^xq^{n-x}\\
+    \pr{X=k} &= \comb{n}{k}p^kq^{n-k}\\
     \mu &= np\\
     \sigma^2 &= npq
 \end{align}
@@ -263,25 +264,25 @@ Also for large values of n, by Stirling's Approximation.
 \end{align}
 Now,
 \begin{align}
-    &\pr{X = x} = \frac{n!}{x!(n-x)!}p^xq^{n-x}\\
-    &\approx \frac{n^n e^{-n} \sqrt{2\pi n}}{x^x e^{-x} \sqrt{2\pi x} (n-x)^{n-x} e^{-(n-x)} \sqrt{2\pi (n-x)}} p^x q^{n-x}\\
-    &= \brak{\frac{np}{x}}^x \brak{\frac{nq}{n-x}}^{n-x} \sqrt{\frac{n}{2\pi x(n-x)}}
+    &\pr{X = k} = \frac{n!}{k!(n-k)!}p^kq^{n-k}\\
+    &\approx \frac{n^n e^{-n} \sqrt{2\pi n}}{k^k e^{-k} \sqrt{2\pi k} (n-k)^{n-k} e^{-(n-k)} \sqrt{2\pi (n-k)}} p^k q^{n-k}\\
+    &= \brak{\frac{np}{k}}^k \brak{\frac{nq}{n-k}}^{n-k} \sqrt{\frac{n}{2\pi k(n-k)}}
 \end{align}
 Let,
 \begin{align}
-    \delta &= x - np\\  
-    x &= np + \delta\\
-    n-x &= nq -\delta
+    \delta &= k - np\\  
+    k &= np + \delta\\
+    n-k &= nq -\delta
 \end{align}
 Now,
 \begin{align}
-    \ln{\brak{\frac{np}{x}}}&= \ln{\brak{\frac{np}{np+\delta}}}\\
+    \ln{\brak{\frac{np}{k}}}&= \ln{\brak{\frac{np}{np+\delta}}}\\
     &= -\ln{\brak{\frac{np+\delta}{np}}}\\
     &= -\ln{\brak{1+\frac{\delta}{np}}}
 \end{align}
 Similarly,
 \begin{align}
-    \ln{\brak{\frac{nq}{n-x}}}&= \ln{\brak{\frac{nq}{nq-\delta}}}\\
+    \ln{\brak{\frac{nq}{n-k}}}&= \ln{\brak{\frac{nq}{nq-\delta}}}\\
     &= -\ln{\brak{\frac{nq-\delta}{nq}}}\\
     &= -\ln{\brak{1-\frac{\delta}{nq}}}
 \end{align}
@@ -291,39 +292,58 @@ Using,
 \end{align}
 Now,
 \begin{align}
-    \ln{\brak{\brak{\frac{np}{x}}^x \brak{\frac{nq}{n-x}}^{(n-x)}}}&=-x\ln{\brak{1+\frac{\delta}{np}}}-(n-x)\ln{\brak{1-\frac{\delta}{nq}}}\\
+    \ln{\brak{\brak{\frac{np}{k}}^k \brak{\frac{nq}{n-k}}^{(n-k)}}}&=-k\ln{\brak{1+\frac{\delta}{np}}}-(n-k)\ln{\brak{1-\frac{\delta}{nq}}}\\
     &=-(\delta + np)\brak{\frac{\delta}{np}-\frac{\delta^2}{2n^2 p^2}}\nonumber\\
     &-(nq-\delta)\brak{-\frac{\delta}{nq}-\frac{\delta^2}{2n^2q^2}}\\
     &\approx -\delta \sbrak{1+\frac{\delta}{2np}-1+\frac{\delta}{2nq}}\\
     &= - \frac{\delta^2}{2npq}\\
-    \therefore \brak{\frac{np}{x}}^x \brak{\frac{nq}{n-x}}^{(n-x)}&=e^{-\frac{\delta^2}{2npq}}
+    \therefore \brak{\frac{np}{k}}^k \brak{\frac{nq}{n-k}}^{(n-k)}&=e^{-\frac{\delta^2}{2npq}}
 \end{align}
 Moreover,
 \begin{align}
-    \sqrt{\frac{n}{2\pi x(n-x)}} &= \sqrt{\frac{n}{2\pi (np+\delta)(nq-\delta)}}\\
+    \sqrt{\frac{n}{2\pi k(n-k)}} &= \sqrt{\frac{n}{2\pi (np+\delta)(nq-\delta)}}\\
     &\approx \sqrt{\frac{1}{2\pi npq}}
 \end{align}
-This holds only when x differs from the mean by a few standard deviations.
+This holds only when k differs from the mean by a few standard deviations.
 
 Now,
 \begin{align}
-    \pr{X=x} &\approx \sqrt{\frac{1}{2\pi npq}} e^{-\frac{(x-np)^2}{2npq}}
+    \pr{X=k} &\approx \sqrt{\frac{1}{2\pi npq}} e^{-\frac{(k-np)^2}{2npq}}
 \end{align}
-This is the Normal-Distribution for data with $\mu=np$ and $\sigma^2=npq$
 
-For data with $\mu=0$ and $\sigma^2=1$, that is $Z=\frac{X-\mu}{\sigma}$
 \begin{align}
-    \pr{Z=z} &\approx \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}
+    \pr{X=k} &\approx \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(k-\mu)^2}{2\sigma^2}}
 \end{align}
 Now,
 \begin{align}
-    \pr{a \le Z \le b}&= \sum_{t=a}^b \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}
+    \pr{a \le X \le b}&= \sum_{t=a}^b \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(k-\mu)^2}{2\sigma^2}}
 \end{align}
 
 Modeling the terms of the summation as area of rectangles of height 1, in the region $(t-0.5,t+0.5)$
 
 We can further approximate the Sum to be the integral,
 \begin{align}
-    \pr{a \le Z \le b}&= \int_{a-0.5}^{b+0.5} \frac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\,dt\
+    \pr{a \le X \le b}&= \int_{a-0.5}^{b+0.5} \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(k-\mu)^2}{2\sigma^2}}\,dk\ \\
+    \pr{a^\prime \le Z \le b^\prime}&= \int_{a^\prime-0.5}^{b^\prime+0.5} \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\,dz\
 \end{align}
+Where,
+\begin{align}
+    Z &= \frac{X-\mu}{\sigma}
+\end{align}
+And $a^\prime$ and $b^\prime$ are corresponding values of a and b
+\begin{figure}[h!]
+\begin{subfigure}{0.7\textwidth}
+  \includegraphics[width=\columnwidth]{figs/10.eps}
+  \caption{10 trials}
+  \label{fig:1}
+\end{subfigure}
+\begin{subfigure}{0.7\textwidth}
+  \includegraphics[width=\columnwidth]{figs/1000.eps}
+  \caption{1000 trails}
+  \label{fig:2}
+\end{subfigure}
+\centering
+\caption{A comparison of Binomial and Gaussian}
+\label{fig:set}
+\end{figure}
 \end{document}
