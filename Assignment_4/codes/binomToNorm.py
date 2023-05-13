@@ -5,8 +5,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-n = 400
-p = 0.5
+n = 10
+p = 0.9
 sig = np.sqrt(n*p*(1-p))
 k = np.linspace(0,n,n+1)
 fig, ax = plt.subplots()
@@ -23,3 +23,5 @@ plt.ylabel("Probability")
 str = str(n) +".eps"
 plt.savefig(str, format='eps')
 plt.close(fig)
+print(norm(n*p,sig).cdf(10.5)-norm(n*p,sig).cdf(0.))
+print(20/144)
