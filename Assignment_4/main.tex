@@ -228,26 +228,50 @@ Note:-The CDF of Z will converge to the normal distribution for large values of 
 
 The Normal-Distribution,
 \begin{align}
-    f(k) = \frac{1}{\sqrt{2\pi}}\times e^{-\frac{k^2}{2}}
+    f(x) = \frac{1}{\sqrt{2\pi}}\times e^{-\frac{x^2}{2}}
 \end{align}
-The CDF from the Normal-Distribution
+The Q-function from the Normal-Distribution
 \begin{align}
-    F_Z(k)=\int_{-\infty}^{k+0.5} \frac{1}{\sqrt{2\pi}}\times e^{-\frac{t^2}{2}} \,dt\
+    Q(x) &=\pr{Z>x}\\
+    \pr{Z>x}&=\int_{x}^{\infty} \frac{1}{\sqrt{2\pi}}\times e^{-\frac{t^2}{2}} \,dt\\\
+    Q(x)&=\int_{x}^{\infty} \frac{1}{\sqrt{2\pi}}\times e^{-\frac{t^2}{2}} \,dt\
+\end{align}
+
+\begin{align}
+    X &< 6.5\\
+    \therefore Z &< \frac{6.5-\mu}{\sigma}\\
+    Z&<-2.63
 \end{align}
 Note:- The additional 0.5 correction term is present.
 We want
 \begin{align}
-    X &\le 6\\
-    \therefore Z &\le \frac{6-\mu}{\sigma}\\
-    Z&\le-3.16
-\end{align}
-\begin{align}
-F_Z(-3.16) &= \int_{-\infty}^{-2.66} \frac{1}{\sqrt{2\pi}}\times e^{-\frac{t^2}{2}} \,dt\
+\pr{Z<2.63} &= 1-\pr{Z>2.63}\\
+    &= 1- Q(-2.63)
 \end{align}
 On Computation,
 \begin{align}
-F_Z(-3.16) &= 0.0042
+\pr{Z<2.63} &= 0.0043
 \end{align}
+For exact answer,
+\begin{align}
+    \pr{X=k} &= \comb{n}{k}p^k q^{n-k}\\
+    \pr{X = k} &= \frac{n!}{k!(n-k)!}p^kq^{n-k}\\
+    \pr{X \le k} &= \sum_{t=0}^{k} \comb{n}{t}p^t q^{n-t}
+\end{align}
+For, $k=6$
+\begin{align}
+    \pr{X \le 6} &= \sum_{t=0}^{6} \comb{n}{t}p^t q^{n-t}
+\end{align}
+On Computation,
+\begin{align}
+    \pr{X\le 6} &= 0.012
+\end{align}
+As we can see, our approximation has an absolute error of $0.08$ but a relative error of $200\%$
+
+The approximation is not very effective when n is small and p is far off from 0.5
+
+
+
 \newpage
 Given that, X is a Binomial Random Variable where n is number of trials, p is probability of success and q is probability of failure.
 

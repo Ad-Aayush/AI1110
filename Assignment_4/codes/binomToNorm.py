@@ -5,8 +5,8 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-n = 10
-p = 0.9
+n = 100
+p = 0.5
 sig = np.sqrt(n*p*(1-p))
 k = np.linspace(0,n,n+1)
 fig, ax = plt.subplots()
@@ -16,12 +16,10 @@ ax.stem(xpoints, ypoints,linefmt='r-', markerfmt='ro', basefmt='k--')
 xpoints = np.linspace(0,n,100*n)
 ypoints = np.array(norm(n*p,sig).pdf(xpoints))
 ax.plot(xpoints, ypoints,'b')
-plt.xlim(n/2-2*(sig),n/2+2*(sig))
+plt.xlim(n*p-2*sig,n*p+2*sig)
 plt.legend(["Gaussian","Binomial"])
 plt.xlabel("Number of Successes")
 plt.ylabel("Probability")
 str = str(n) +".eps"
 plt.savefig(str, format='eps')
 plt.close(fig)
-print(norm(n*p,sig).cdf(10.5)-norm(n*p,sig).cdf(0.))
-print(20/144)
