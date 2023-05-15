@@ -199,6 +199,10 @@ at most 6 of a random sample of 10 people are right-
 handed.
 
 \textbf{Solution.}
+\begin{enumerate}
+    \item 
+    \textbf{Gaussian}
+    
 Let $X$ be a Binomial random Variable.
 \begin{align}
     X&=Bin(n,p)\\
@@ -245,14 +249,16 @@ The Q-function from the Normal-Distribution
 Note:- The additional 0.5 correction term is present.
 We want
 \begin{align}
-\pr{Z<-2.63} &= 1-\pr{Z>-2.63}\\
+\pr{Z<2.63} &= 1-\pr{Z>2.63}\\
     &= 1- Q(-2.63)
 \end{align}
 On Computation,
 \begin{align}
-\pr{Z<-2.63} &= 0.0043
+\pr{Z<2.63} &= 0.0043
 \end{align}
-For exact answer,
+\item 
+\textbf{Binomial}
+
 \begin{align}
     \pr{X=k} &= \comb{n}{k}p^k q^{n-k}\\
     \pr{X = k} &= \frac{n!}{k!(n-k)!}p^kq^{n-k}\\
@@ -260,17 +266,22 @@ For exact answer,
 \end{align}
 For, $k=6$
 \begin{align}
+    \label{eq:Bin}
     \pr{X \le 6} &= \sum_{t=0}^{6} \comb{n}{t}p^t q^{n-t}
 \end{align}
-On Computation,
+From \eqref{eq:Bin}
 \begin{align}
     \pr{X\le 6} &= 0.012
 \end{align}
+\item 
+\textbf{Conclusion}
+
 As we can see, our approximation has an absolute error of $0.008$ but a relative error of $67.14\%$
 
-\textbf{Conclusion:-} The approximation is not very effective when $n$ is small and $p$ is far off from $0.5$
+The approximation is not very effective when n is small and p is far off from 0.5
+\item 
+\textbf{Proof}
 
-\newpage
 Given that, X is a Binomial Random Variable where n is number of trials, p is probability of success and q is probability of failure.
 
 Let $\mu$ be the mean and $\sigma^2$ be the variance.
@@ -348,18 +359,23 @@ We can further approximate the Sum to be the integral,
     \pr{a \le X \le b}&= \int_{a-0.5}^{b+0.5} \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(k-\mu)^2}{2\sigma^2}}\,dk\ \\
     \pr{a^\prime \le Z \le b^\prime}&= \int_{a^\prime-0.5}^{b^\prime+0.5} \frac{1}{\sqrt{2\pi}}e^{-\frac{z^2}{2}}\,dz\
 \end{align}
+
 Where,
 \begin{align}
     Z &= \frac{X-\mu}{\sigma}
 \end{align}
 And $a^\prime$ and $b^\prime$ are corresponding a and b
-\begin{figure}[h!]
-\begin{subfigure}{0.7\textwidth}
+\item 
+\textbf{Graphs}
+\end{enumerate}
+\begin{enumerate}
+\begin{figure}[h]
+\begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\columnwidth]{figs/10.eps}
   \caption{10 trials}
   \label{fig:1}
 \end{subfigure}
-\begin{subfigure}{0.7\textwidth}
+\begin{subfigure}{0.45\textwidth}
   \includegraphics[width=\columnwidth]{figs/1000.eps}
   \caption{1000 trails}
   \label{fig:2}
@@ -368,4 +384,6 @@ And $a^\prime$ and $b^\prime$ are corresponding a and b
 \caption{A comparison of Binomial and Gaussian}
 \label{fig:set}
 \end{figure}
+\end{enumerate}
+
 \end{document}
