@@ -238,6 +238,7 @@ The Q-function from the Normal-Distribution
 \begin{align}
     Q(x) &=\pr{Z>x}\\
     \pr{Z>x}&=\int_{x}^{\infty} \frac{1}{\sqrt{2\pi}}\times e^{-\frac{t^2}{2}} \,dt\\\
+    \label{eq:Q}
     Q(x)&=\int_{x}^{\infty} \frac{1}{\sqrt{2\pi}}\times e^{-\frac{t^2}{2}} \,dt\
 \end{align}
 
@@ -247,14 +248,15 @@ The Q-function from the Normal-Distribution
     Z&<-2.63
 \end{align}
 Note:- The additional 0.5 correction term is present.
-We want
+
+From \eqref{eq:Q}
 \begin{align}
-\pr{Z<2.63} &= 1-\pr{Z>2.63}\\
+\pr{Z<-2.63} &= 1-\pr{Z>-2.63}\\
     &= 1- Q(-2.63)
 \end{align}
 On Computation,
 \begin{align}
-\pr{Z<2.63} &= 0.0043
+\pr{Z<-2.63} &= 0.0043
 \end{align}
 \item 
 \textbf{Binomial}
@@ -325,7 +327,8 @@ Using,
 \end{align}
 Now,
 \begin{align}
-    \ln{\brak{\brak{\frac{np}{k}}^k \brak{\frac{nq}{n-k}}^{(n-k)}}}&=-k\ln{\brak{1+\frac{\delta}{np}}}-(n-k)\ln{\brak{1-\frac{\delta}{nq}}}\\
+    \ln{\brak{\brak{\frac{np}{k}}^k \brak{\frac{nq}{n-k}}^{(n-k)}}}&=-k\ln{\brak{1+\frac{\delta}{np}}}\nonumber\\
+    &-(n-k)\ln{\brak{1-\frac{\delta}{nq}}}\\
     &=-(\delta + np)\brak{\frac{\delta}{np}-\frac{\delta^2}{2n^2 p^2}}\nonumber\\
     &-(nq-\delta)\brak{-\frac{\delta}{nq}-\frac{\delta^2}{2n^2q^2}}\\
     &\approx -\delta \sbrak{1+\frac{\delta}{2np}-1+\frac{\delta}{2nq}}\\

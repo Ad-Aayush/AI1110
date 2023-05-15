@@ -5,7 +5,7 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
-n = 100
+n = 20  
 p = 0.5
 sig = np.sqrt(n*p*(1-p))
 k = np.linspace(0,n,n+1)
